@@ -1,16 +1,8 @@
-"""
-WSGI config for man project.
+#!/usr/bin/env python
+from os import environ
+from django.core.handlers.wsgi import WSGIHandler
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+environ['DJANGO_SETTINGS_MODULE'] = environ.get(
+    'DJANGO_SETTINGS_MODULE', 'settings')
 
-For more information on this file, see
-https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
-"""
-
-import os
-
-from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "man.settings")
-
-application = get_wsgi_application()
+application = WSGIHandler()

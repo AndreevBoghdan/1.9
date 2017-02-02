@@ -118,4 +118,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+
+from os import path as op
+DEPLOY_DIR = op.dirname(op.dirname(__file__))
+STATIC_ROOT = op.join(DEPLOY_DIR, 'static')
+
 STATIC_URL = '/static/'
+
+ROOT_URLCONF = 'urls'
